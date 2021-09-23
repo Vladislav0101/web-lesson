@@ -8,14 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body.lab-1 {
+        main.lab-1 {
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
+        
         .lab-1-input,
         .lab-1-button {
             height: 2rem;
@@ -23,19 +23,19 @@
             border-radius: 3px;
             cursor: pointer;
         }
-
+        
         .lab-1-input {
             border: 1px solid black;
             transition: all .2s linear;
         }
-
+        
         .lab-1-input:hover,
         .lab-1-input:focus {
             border: 1px solid white;
             background-color: black;
             color: #fcfcfc;
         }
-
+        
         .lab-1-button {
             border: none;
             border: 1px solid black;
@@ -43,19 +43,78 @@
             transition: all .2s linear;
             color: white;
         }
-
+        
         .lab-1-button:hover {
             background-color: white;
             color: black;
         }
+        
+        header {
+            padding: 20px;
+            background-color: black;
+        }
+        
+        ul {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        li {
+            list-style: none;
+            padding: 0 .5rem;
+            color: white;
+            line-height: 2rem;
+            border-bottom: 2px solid black;
+            border-top: 2px solid black;
+            transition: all .2s linear;
+        }
+        
+        li:hover {
+            cursor: pointer;
+            border-bottom: 2px solid white;
+            border-top: 2px solid white;
+        }
+        
+        .apple-logo {
+            display: none;
+            color: white;
+            text-align: center;
+        }
+        
+        @media (max-width:540px) {
+            ul {
+                display: none;
+            }
+            .apple-logo {
+                display: block;
+            }
+        }
     </style>
 </head>
 
-<body class="lab-1">
-    <form action="https://google.com/search?q" class="lab-1-form">
-        <input type="text" placeholder="Введите запрос" class="lab-1-input">
-        <button type="submit" class="lab-1-button">Поиск</button>
-    </form>
+<body>
+    <header>
+        <ul>
+            <li>Store</li>
+            <li>Mac</li>
+            <li>iPad</li>
+            <li>iPhone</li>
+            <li>Watch</li>
+            <li>TV</li>
+            <li>Music</li>
+            <li>Support</li>
+        </ul>
+        <span class="apple-logo">APPLE</span>
+    </header>
+
+    <main class="lab-1">
+        <form action="https://google.com/search?q" class="lab-1-form">
+            <input type="text" placeholder="Введите запрос" class="lab-1-input">
+            <button type="submit" class="lab-1-button">Поиск</button>
+        </form>
+    </main>
 </body>
 
 </html>
