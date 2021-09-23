@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <style>
         main.lab-1 {
             width: 100vw;
@@ -50,15 +50,18 @@
         }
         
         header {
-            padding: 20px;
             background-color: black;
+            position: fixed;
+            width: 100%;
         }
         
-        ul {
+        .menu {
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             max-width: 900px;
             margin: 0 auto;
+            transition: all .3s linear;
         }
         
         li {
@@ -78,35 +81,76 @@
         }
         
         .apple-logo {
-            display: none;
             color: white;
             text-align: center;
         }
         
+        .burger {
+            color: white;
+        }
+        
+        .mobile {
+            display: none;
+        }
+        
         @media (max-width:540px) {
-            ul {
-                display: none;
+            .menu {
+                /* display: none; */
+                position: absolute;
+                z-index: -1;
             }
-            .apple-logo {
-                display: block;
+            li {
+                border-bottom: 2px solid rgba(0, 0, 0, 0);
+                border-top: 2px solid rgba(0, 0, 0, 0);
             }
+            .menu-active {
+                display: grid;
+                grid-template-columns: 1fr;
+                transform: translateY(20%);
+                background-color: black;
+                width: 100%;
+                transition: all .3s linear;
+            }
+            .mobile {
+                padding: 20px;
+                height: 5rem;
+                display: flex;
+                align-items: center;
+                background-color: black;
+            }
+            .burger {
+                cursor: pointer;
+            }
+            .logo-box {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        a {
+            color: white;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <ul>
-            <li>Store</li>
-            <li>Mac</li>
-            <li>iPad</li>
-            <li>iPhone</li>
-            <li>Watch</li>
-            <li>TV</li>
-            <li>Music</li>
-            <li>Support</li>
+        <ul class="menu" id="menu">
+            <li><a href="/">Store</a></li>
+            <li><a href="/">Mac</a></li>
+            <li><a href="/">iPad</a></li>
+            <li><a href="/">iPhone</a></li>
+            <li><a href="/">Watch</a></li>
+            <li><a href="/">TV</a></li>
+            <li><a href="/">Music</a></li>
+            <li><a href="/">Support</a></li>
         </ul>
-        <span class="apple-logo">APPLE</span>
+        <div class="mobile">
+            <span class="burger" id="burger">Menu</span>
+            <div class="logo-box">
+                <span class="apple-logo">APPLE</span>
+            </div>
+        </div>
     </header>
 
     <main class="lab-1">
@@ -115,6 +159,10 @@
             <button type="submit" class="lab-1-button">Поиск</button>
         </form>
     </main>
+
+    <script>
+        document.getElementById('burger').onclick = () => document.getElementById('menu').classList.toggle('menu-active', !document.getElementById('menu').classList.contains('menu-active'))
+    </script>
 </body>
 
 </html>
