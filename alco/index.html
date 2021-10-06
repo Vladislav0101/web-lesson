@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        #header {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: max-content;
+            background-color: #C0C0C0;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <span>Weight:</span>
+    <input type="number" size="2" id="txtWeight" value="90">
+    <input type="button" size="4" value="Calc" onClick="WidmarkGo()"><br/>
+    <span id="Widmark"></span>
+
+    <script>
+        function WidmarkGo() {
+            var N = document.getElementById("txtWeight").value;
+            var W = Widmark(N);
+            document.getElementById("Widmark").innerHTML = W;
+        }
+
+        function Widmark(N) {
+            var m = N;
+            var A = 1.35 * m * 0.7;
+            var F = "<br>Cognac - <b><font color='brown'>" + Math.round(A / 0.4) + "</b> gr.</font><br>" + "Port wine - <b><font color='purple'>" + Math.round(A / 0.19) + "</b>gr.</font><br> Dry wine - <b><font color='red'>" + Math.round(A / 0.12) + "</b> gr.</font><br>" + "Beer - <b><font color = 'yellow'>" + Math.round(A / 0.06) + "</b> gr.</font><br>";
+            return F;
+        }
+    </script><br/>
+
+</body>
+
+</html>
